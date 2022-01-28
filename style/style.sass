@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+  
+h1, h2, h3, h4, h5, h6, p
+	margin: 0
+	padding: 0
+*, *:focus, *:after, *:before
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	outline: none
+ul, ol
+	padding: 0
+	margin: 0
+	list-style: none
+a
+	text-decoration: none
+img
+	max-width: 100%
+	vertical-align: bottom 
+article,aside,footer,header,nav,section,canvas,menu
+	display: block
+	padding: 0
+	margin: 0
+body
+	margin: 0 auto
+	width: 100vw
+	min-height: 100vh
+	background-color: #dcdcdc
+	max-width: 100%
+	min-width: 300px
+	font-family: 'Open Sans', 'Arial', 'Sans-Serif'
+	position: relative
+	display: flex
+	font-size: 14px
+	line-height: 22px
+	flex-direction: column
+.content
+	flex: 1 1 auto
+	background-color: #fff
+.container
+	max-width: 980px
+	margin: 0 auto
+	padding: 0 10px
+	position: relative
+
+//---header
+.header
+	background-color: #dcdcdc
+	&__inner
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 40px 0
+		color: #767676
+		@media screen and ( max-width: 991px )
+			flex-wrap: wrap
+			padding: 20px 0
+	&__logo
+		div
+			width: 318px
+			height: 100px
+			@media screen and ( max-width: 991px )
+				margin: 0 auto
+				width: 250px
+				height: auto
+		img
+			width: 100%
+			height: 100%
+	&__date
+		font-size: 17px
+	&__phone
+		font-size: 31px
+		font-weight: 900
+		@media screen and ( max-width: 991px )
+			display: flex
+			justify-content: space-evenly
+		div + div
+			margin-top: 20px
+			@media screen and ( max-width: 991px )
+				margin-top: 0
+		&-number
+			a
+				color: #767676
+				transition: 0.3s
+				&:hover
+					color: #555
+		&--mobile
+			display: none
+			@media screen and ( max-width: 768px )
+				display: flex
+				font-size: 24px
+				justify-content: flex-start
+				@media screen and ( max-width: 575px )
+					font-size: 18px
+					flex-direction: column
+				div + div
+					margin-left: 20px
+					@media screen and ( max-width: 575px )
+						margin: 10px 0 0
+				a
+					color: #fff
+					&:hover
+						color: #ddddddce
+
+		&--desktop
+			@media screen and ( max-width: 768px )
+				display: none
+				
+	&__item
+		@media screen and ( max-width: 991px )
+			flex: 0 0 100%
+			max-width: 100%
+			text-align: center
+			margin: 10px 0
+
+//---menu
+.menu
+	background: #777777
+	padding: 18.5px 0
+	position: relative
+	&-wrap
+		position: relative
+		z-index: 9999
+	&-block
+		position: relative
+	&__body
+		@media screen and ( max-width: 768px )
+			background: #777 
+			z-index: 99999
+			width: 100%
+			height: 100%
+			transition: left 0.3s ease 0s
+			visibility: hidden
+			opacity: 0
+			transition: 0.5s
+			display: block
+			position: absolute
+	&__body._active
+		@media screen and ( max-width: 768px )
+			transform: translate(0, 0)
+			visibility: visible
+			opacity: 1
+			position: relative
+			margin-top: 20px
+	&__list
+		display: flex
+		justify-content: center
+		flex-wrap: wrap
+		@media screen and ( max-width: 768px )
+			display: flex
+			flex-direction: column
+		a
+			font-size: 18px
+			font-weight: 400
+			color: #fff
+			transition: 0.2s
+			&:hover
+				border-bottom: solid 1px #fff
+				@media screen and ( max-width: 768px )
+					border-bottom: none
+		li + li 
+			padding-left: 15px
+			@media screen and ( max-width: 768px )
+				padding-left: 5px
+		li
+			position: relative
+			@media screen and ( max-width: 768px )
+				margin: 0
+				padding: 7px
+				border-bottom: solid 1px #fff
+				&:hover
+					background: #777
+			&::after
+				content: ''
+				width: 1px
+				height: 100%
+				border-right: solid 1px #fff
+				margin-left: 15px
+				@media screen and ( max-width: 768px )
+					display: none
+			&:last-child
+				&::after
+					content: ''
+					display: none
+.burger
+	width: 40px
+	height: 20px
+	cursor: pointer
+	position: absolute
+	line-height: 40px
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	right: 0
+	top: 0
+	display: none
+	transition: 1s
+	@media screen and ( max-width: 768px )
+		display: flex
+	div
+		width: 100%
+		height: 4px
+		border-radius: 10px
+		background: #333
+		background: #ddddddce
+		position: relative
+		transition: 0.5s
+	&._active
+		div
+			&:nth-child(1)
+				transform: rotate(45deg)
+				left: -5%
+				top: 30%
+			&:nth-child(2)
+				display: none
+			&:nth-child(3)
+				transform: rotate(-45deg)
+				left: -5%
+				top: -50%
+
+//---content
+.slider
+	min-width: 0
+.img-slider
+	width: 100%
+	overflow: hidden
+	text-align: center
+.img-slider__img
+	position: relative
+	height: 400px
+	width: 1399px
+	.img
+		background: url('../img/slider.jpg')
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		display: block
+		width: 100%
+		height: 100%
+		text-align: center
+		position: fixed
+		top: 0
+.about
+	padding-top: 40px
+	padding-bottom: 185px
+	color: #767676
+	background: #fff
+	@media screen and ( max-width: 991px )
+		padding-bottom: 100px
+	@media screen and ( max-width: 575px )
+		padding-bottom: 50px
+	@media screen and ( max-width: 375px )
+		padding-bottom: 20px
+	&__wrap
+		display: flex
+		margin: 0 -30px
+		@media screen and ( max-width: 1024px )
+			margin: 0 -15px
+			width: 100%
+		@media screen and ( max-width: 768px )
+			flex-wrap: wrap
+			order: 1
+			margin: 0
+	&__inner
+		padding: 0 30px
+		@media screen and ( max-width: 1024px )
+			padding: 0 15px
+		@media screen and ( max-width: 768px )
+			flex: 0 0 100%
+			max-width: 100%
+			padding: 0
+	&__title
+		margin-top: 20px
+		margin-bottom: 23px
+		font-size: 33px
+		font-weight: 400
+		@media screen and ( max-width: 991px )
+			font-size: 28px
+	&__text
+		p
+			margin-bottom: 20px
+	&-choice
+		&__title
+			margin-bottom: 30px
+			font-size: 24px
+			@media screen and ( max-width: 991px )
+				font-size: 22px
+		&__list
+			display: flex
+			margin: 0 -20px
+			@media screen and ( max-width: 1024px )
+				margin: 0 -10px
+			@media screen and ( max-width: 400px )
+				flex-wrap: wrap
+		&__item
+			padding: 0 20px
+			flex: 0 0 50%
+			max-width: 50%
+			@media screen and ( max-width: 1024px )
+				padding: 0 10px
+			@media screen and ( max-width: 400px )
+				flex: 0 0 100%
+				max-width: 100%
+				margin-bottom: 25px
+			&-title
+				font-weight: 700
+				margin-bottom: 30px
+				@media screen and ( max-width: 400px )
+					margin-bottom: 10px
+.news
+	padding: 0 30px
+	color: #fff
+	flex: 0 0 38%
+	max-width: 38%
+	@media screen and ( max-width: 1024px )
+		padding: 0 15px
+	@media screen and ( max-width: 768px )
+		flex: 0 0 100%
+		max-width: 100%
+		//order: 2
+		padding: 0 0 0
+	&__inner
+		background: #777777
+		padding: 20px 25px
+	&__title
+		font-size: 40px
+		padding-bottom: 25px
+		@media screen and ( max-width: 991px )
+			font-size: 30px
+	&-item
+		font-size: 14px
+		font-weight: 400
+		margin-bottom: 20px
+	&__link
+		margin-top: 60px
+		margin-right: 25px
+		text-align: right
+		@media screen and ( max-width: 768px )
+			margin-top: 40px
+		@media screen and ( max-width: 575px )
+			margin-top: 30px
+		a
+			color: #fff
+			&:hover
+				text-decoration: underline
+
+//---footer
+.footer
+	background: #767676
+	color: #fff
+	padding: 50px 0
+	@media screen and ( max-width: 575px )
+		padding: 25px 0
+	&__inner
+		display: flex
+		@media screen and ( max-width: 768px )
+			flex-wrap: wrap
+			justify-content: space-between
+	&__list
+		ul
+			li
+				a
+					border-bottom: solid 1px #a2a2a2
+					&:hover
+						border-bottom: none
+	&-item
+		a
+			color: #fff
+		&:nth-child(1)
+			flex: 0 0 32%
+			max-width: 32%
+			@media screen and ( max-width: 768px )
+				flex: 0 0 50%
+				max-width: 50%
+				order: 3
+				text-align: right
+				@media screen and ( max-width: 575px )
+					flex: 0 0 100%
+					max-width: 100%
+					text-align: left
+		&:nth-child(2)
+			@media screen and ( max-width: 768px )
+				flex: 0 0 100%
+				max-width: 100%
+				order: 1
+				margin-bottom: 25px
+				@media screen and ( max-width: 575px )
+					margin-bottom: 15px
+		&:nth-child(3)
+			margin-left: auto
+			@media screen and ( max-width: 768px )
+				flex: 0 0 50%
+				max-width: 50%
+				order: 2
+				margin-left: auto
+				display: block
+				text-align: left
+				@media screen and ( max-width: 575px )
+					flex: 0 0 100%
+					max-width: 100%
+					margin-bottom: 15px
+					
